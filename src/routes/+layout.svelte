@@ -2,7 +2,7 @@
   import type { Snippet } from 'svelte';
   import Nav from '$lib/components/Nav.svelte';
 
-  let { title = "hey", children }: { title: string; children: Snippet } = $props();
+  let { title = "Jason Feinberg", children }: { title: string; children: Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -11,4 +11,13 @@
 
 <Nav />
 
-{@render children()}
+<main>
+  {@render children()}
+</main>
+
+<style>
+  main {
+    margin: 2rem auto;
+    max-width: 80ch;
+  }
+</style>

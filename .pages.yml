@@ -1,0 +1,60 @@
+media: static
+content:
+  - name: about
+    label: About
+    path: src/routes/about/+page.md
+    type: file
+    fields:
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          image:
+            path: static
+  - name: videos
+    label: Videos
+    path: src/lib/data/videos.json
+    type: file
+    fields:
+      - name: source
+        label: Video Source
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Source URL
+            type: string
+            pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+          - name: type
+            label: Video Type
+            type: select
+            values:
+              - value: video/mp4
+                label: .mp4
+              - value: video/webm
+                label: .webm
+              - value: video/3gp
+                label: .3gp
+              - value: video/ogg
+                label: .ogg or .ogv
+              - value: video/avi
+                label: .avi
+              - value: video/mpeg
+                label: .mpeg
+  - name: socials
+    label: Socials
+    path: src/lib/data/socials.json
+    type: file
+    fields:
+      - name: social
+        label: Social
+        type: object
+        list: true
+        fields:
+          - name: url
+            label: URL
+            type: string
+            pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+          - name: name
+            label: Name
+            type: string
