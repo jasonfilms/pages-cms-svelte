@@ -28,19 +28,20 @@ content:
           - name: type
             label: Video Type
             type: select
-            values:
-              - value: video/mp4
-                label: .mp4
-              - value: video/webm
-                label: .webm
-              - value: video/3gp
-                label: .3gp
-              - value: video/ogg
-                label: .ogg or .ogv
-              - value: video/avi
-                label: .avi
-              - value: video/mpeg
-                label: .mpeg
+            options:
+              values:
+                - value: video/mp4
+                  label: .mp4
+                - value: video/webm
+                  label: .webm
+                - value: video/3gp
+                  label: .3gp
+                - value: video/ogg
+                  label: .ogg or .ogv
+                - value: video/avi
+                  label: .avi
+                - value: video/mpeg
+                  label: .mpeg
   - name: socials
     label: Socials
     path: src/lib/data/socials.json
