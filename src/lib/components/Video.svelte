@@ -1,27 +1,12 @@
 <script lang="ts">
-  import 'vidstack/player/styles/default/theme.css';
-  import 'vidstack/player/styles/default/layouts/video.css';
-
-  import 'vidstack/player';
-  import 'vidstack/player/layouts';
-  import 'vidstack/player/ui';
-    import type { PlayerSrc } from 'vidstack';
 
   let { source }: { source: { src: string; type: string; } } = $props();
 </script>
 
-<media-player
-  class="player" 
-  viewType="video"
-  crossOrigin
-  playsInline
-  hideControlsOnMouseLeave
->
-  <media-provider>
-    <source src="{source.src}" type="{source.type}" />
-  </media-provider>
-  <media-video-layout></media-video-layout>
-</media-player>
+<video controls>
+  <source src="{source.src}" type="video/object">
+  <track kind="captions" />
+</video>
 
 <style>
   .player {

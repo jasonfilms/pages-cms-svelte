@@ -11,7 +11,7 @@
     <article class="card">
       <Video {source} />
       <div class="card-content">
-        <h1>test</h1>
+        <h2>test</h2>
         <p>description</p>
       </div>
     </article>
@@ -28,5 +28,8 @@
   .card {
     display: flex;
     border: 2px solid black;
+    padding: 0.25em;
+    gap: 0.25em;
+
   }
 </style>

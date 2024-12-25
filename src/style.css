@@ -1,0 +1,30 @@
+:root {
+  --body-font: 'IBM Plex Serif', Georgia, 'Times New Roman', Times, serif;
+  --title-font: 'Azeret Mono', 'Courier New', Courier, monospace;
+  --border: #cecece;
+  --text: #0a0807;
+  --background: #faf8f7;
+  --primary: #a7665a;
+  --secondary: #d6afa7;
+  --accent: #c57e70;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 { font-family: var(--title-font); }
+
+input, textarea {
+  font-family: var(--title-font);
+  font-weight: 300;
+  padding: 0.5em;
+  border: var(--border) 1px solid;
+}
