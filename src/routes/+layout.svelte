@@ -8,8 +8,6 @@
 
 <svelte:head>
   <title>{title}</title>
-  <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=ibm-plex-serif:400,400i,700,700i|azeret-mono:100,200,300,400,500,600,700,800,900|dm-mono:300,400,500" rel="stylesheet" />
 </svelte:head>
 
 <Nav />

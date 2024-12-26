@@ -1,7 +1,7 @@
 [
-  { "src": "https://drive.google.com/file/d/1FS3Qis0B81E1_TQo3q9XWSuYXdVARhCP/preview", "type": "video/mp4" },
-  { "src": "https://vimeo.com/984159615", "type": "video/mp4" },
-  { "src": "https://vimeo.com/323783503", "type": "video/mp4" },
-  { "src": "https://vimeo.com/707012696", "type": "video/mp4" },
-  { "src": "https://vimeo.com/999941003", "type": "video/mp4" }
+  { "name": "next", "desc": "test", "src": "https://drive.google.com/file/d/1FS3Qis0B81E1_TQo3q9XWSuYXdVARhCP/preview", "type": "video/mp4" },
+  { "name": "one", "desc": "three four", "src": "https://vimeo.com/984159615", "type": "video/mp4" },
+  { "name": "two", "desc": "hello", "src": "https://vimeo.com/323783503", "type": "video/mp4" },
+  { "name": "what's up", "desc": "lol", "src": "https://vimeo.com/707012696", "type": "video/mp4" },
+  { "name": "hey", "desc": "here", "src": "https://vimeo.com/999941003", "type": "video/mp4" }
 ]

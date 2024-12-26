@@ -1,7 +1,3 @@
-<script>
-  
-</script>
-
 <nav>
   <ul>
     <li><a href="/">index</a></li>

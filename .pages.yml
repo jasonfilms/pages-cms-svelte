@@ -10,7 +10,7 @@ content:
         type: rich-text
         options:
           image:
-            path: static
+            path: static/images
   - name: videos
     label: Videos
     path: src/lib/data/videos.json
@@ -21,6 +21,16 @@ content:
         type: object
         list: true
         fields:
+          - name: name
+            label: Title
+            type: string
+          - name: desc
+            label: Description
+            type: rich-text
+            format: html
+            options:
+              image:
+                path: static/images
           - name: src
             label: Source URL
             type: string
