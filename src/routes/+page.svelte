@@ -76,11 +76,20 @@
         background-image: repeating-linear-gradient(#0000 0 calc(1lh - 1px), var(--border) 0 1lh)
       }
     }
+
+    @media only screen and (max-width: 700px) {
+      align-items: center;
+      flex-flow: column wrap;
+    }
   }
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1180px) {
     .grid {
-      grid-template-columns: 1;
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      justify-content: center;
     }
   }
 </style>
