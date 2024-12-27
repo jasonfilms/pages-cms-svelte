@@ -3,41 +3,43 @@
   import videos from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
   import BiggerPicture from "bigger-picture";
+  import type { BiggerPictureInstance } from 'bigger-picture';
   import "bigger-picture/css";
 
-  let bp: any;
-  let root: HTMLElement;
-  let links: NodeList;
+  let bp: BiggerPictureInstance;
+  let links: NodeListOf<HTMLAnchorElement>;
   onMount(() => {
     bp = BiggerPicture({ target: document.body });
-    links = root.querySelectorAll("a");
+    links = document.querySelectorAll("a.card-link");
   });
 </script>
 
-<section class="grid" bind:this={root}>
+<section class="grid">
   {#each videos as source}
     <article class="card">
-      <Video {source} />
+      <div class="card-image">
+        <Video src={source.src} />
+      </div>
       <div class="card-content">
         <h2>
           <a 
+            class="card-link" 
             href="{source.src}"
             data-width="1920"
             data-height="1080"
-            data-iframe="{source.src}"
+            data-iframe="https://youtube.com/embed/{source.src.slice(-11)}"
             onclick={(e) => {
               e.preventDefault();
               bp.open({
                 items: links,
                 el: e.currentTarget,
-                scale: 0.75
               });
             }} 
           >
             {source.name}
           </a>
         </h2>
-        <p>{@html source.desc}</p>
+        <div class="card-text">{@html source.desc}</div>
       </div>
     </article>
   {/each}
@@ -46,7 +48,9 @@
 <style>
   .grid {
     display: grid;
+    place-content: center;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: dense;
     gap: 1rem;
   }
 
@@ -56,5 +60,27 @@
     padding: 0.25em;
     gap: 0.25em;
 
+    .card-image {
+      width: 10em;
+      height: 10em;
+      overflow: hidden;
+    }
+
+    .card-content {
+      width: 30ch;
+      padding: 1rem;
+
+      .card-text {
+        min-height: 10rem;
+        margin-top: 1em;
+        background-image: repeating-linear-gradient(#0000 0 calc(1lh - 1px), var(--border) 0 1lh)
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .grid {
+      grid-template-columns: 1;
+    }
   }
 </style>

@@ -5,26 +5,20 @@
   import 'vidstack/player/layouts';
   import 'vidstack/player/ui';
 
-  let { source }: { source: { name: string; desc: string; src: string; type: string; } } = $props();
+  let { src }: { src: string } = $props();
 </script>
 
 <media-player
-  class="player" 
   viewType="video"
-  crossOrigin
-  playsInline
-  hideControlsOnMouseLeave
+  streamType="on-demand"
+  crossorigin
+  playsinline
+  muted
+  {src}
 >
-  <media-provider>
-    <source src="{source.src}" type="{source.type}" />
-  </media-provider>
+  <media-provider></media-provider>
   <media-video-layout></media-video-layout>
 </media-player>
 
 <style>
-  .player {
-    --video-border-radius: 2px;
-
-    &[data-view-type='video'] { aspect-ratio: 16 / 9; }
-  }
 </style>
