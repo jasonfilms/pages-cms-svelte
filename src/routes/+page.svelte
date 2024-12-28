@@ -33,6 +33,7 @@
               bp.open({
                 items: links,
                 el: e.currentTarget,
+                scale: 0.75
               });
             }} 
           >

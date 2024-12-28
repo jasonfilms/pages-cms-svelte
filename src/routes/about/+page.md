@@ -1,3 +1,5 @@
-# about
+---
+layout: about
+---
 
-hello
+this is a test

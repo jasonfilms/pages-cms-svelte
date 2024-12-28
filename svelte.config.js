@@ -9,6 +9,9 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [vitePreprocess(), mdsvex({
 		extensions: [".svelte.md", ".md"],
+		layout: {
+			about: "./src/lib/components/AboutLayout.svelte",
+		},
 	})],
 
 	kit: {

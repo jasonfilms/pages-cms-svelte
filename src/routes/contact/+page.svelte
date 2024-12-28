@@ -34,3 +34,17 @@
     <textarea rows="5" required></textarea>
   </label>
 </form>
+
+<style>
+  form {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.5em;
+
+    label {
+      display: flex;
+      flex-flow: column wrap;
+      gap: 0.25em;
+    }
+  }
+</style>

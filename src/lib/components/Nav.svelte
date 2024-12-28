@@ -1,4 +1,11 @@
+<script lang="ts">
+  let mobile = $state(false);
+</script>
+
 <nav>
+  {#if mobile}
+    <button aria-label="Toggle menu">Menu</button>
+  {/if}
   <ul>
     <li><a href="/">index</a></li>
     <li><a href="/about">about</a></li>

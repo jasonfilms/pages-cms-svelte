@@ -5,6 +5,11 @@ content:
     path: src/routes/about/+page.md
     type: file
     fields:
+      - name: layout
+        label: Layout
+        type: string
+        default: about
+        hidden: true
       - name: body
         label: Body
         type: rich-text
