@@ -33,6 +33,8 @@
     <span>message</span>
     <textarea rows="5" required></textarea>
   </label>
+
+  <button type="submit">Send mail</button>
 </form>
 
 <style>
@@ -45,6 +47,12 @@
       display: flex;
       flex-flow: column wrap;
       gap: 0.25em;
+    }
+
+    button {
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1.25rem;
     }
   }
 </style>

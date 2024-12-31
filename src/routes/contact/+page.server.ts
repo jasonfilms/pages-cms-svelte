@@ -3,6 +3,8 @@ import nodemailer from "nodemailer";
 import { MailtrapTransport } from "mailtrap";
 import { TOKEN, RECIPIENT } from "$env/static/private";
 
+export const prerender = false;
+
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
@@ -11,14 +13,10 @@ export const actions = {
     }));
     try {
       transport.sendMail({
-      from: data.get("email") as string,
-      to: RECIPIENT,
-      subject: `Contact Form: ${data.get("name") as string}`,
-      html: `
-        <html>
-          <
-        </html>
-        `,
+        from: data.get("email") as string,
+        to: RECIPIENT,
+        subject: `Contact Form: ${data.get("name") as string}`,
+        text: data.get("message") as string,
       });
     } catch (e) {
       console.error(e);
