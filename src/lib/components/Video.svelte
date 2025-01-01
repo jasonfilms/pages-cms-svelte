@@ -1,33 +1,43 @@
 <script lang="ts">
-  import 'vidstack/player/styles/default/theme.css';
-  import 'vidstack/player/styles/default/layouts/video.css';
-  import 'vidstack/player';
-  import 'vidstack/player/layouts';
-  import 'vidstack/player/ui';
+  import 'vidstack/bundle';
   import type { MediaPlayerElement } from 'vidstack/elements';
-  import { onDestroy } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
 
-  let player: MediaPlayerElement;
+  let player = $state() as MediaPlayerElement;
+  let mounted = $state(false);
   let { src }: { src: string } = $props();
 
+  onMount(() => {
+    mounted = true;
+  });
+
   onDestroy(() => {
-    player.destroy();
+    if (player !== undefined) {
+      player.destroy();
+    }
   });
 </script>
 
-<media-player
-  viewType="video"
-  streamType="on-demand"
-  crossorigin
-  playsinline
-  muted
-  keep-alive
-  {src}
-  bind:this={player}
-> 
-  <media-provider></media-provider>
-  <media-video-layout></media-video-layout>
-</media-player>
+{#key mounted}
+  <media-player
+    viewType="video"
+    streamType="on-demand"
+    crossorigin
+    playsinline
+    muted
+    keep-alive
+    class="player"
+    {src}
+    bind:this={player}
+  > 
+    <media-provider></media-provider>
+    <media-video-layout></media-video-layout>
+  </media-player>
+{/key}
 
 <style>
+  .player {
+    aspect-ratio: 16 / 9;
+    --video-font-family: var(--title-font);
+  }
 </style>
