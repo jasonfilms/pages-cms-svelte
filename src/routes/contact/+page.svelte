@@ -13,7 +13,7 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form method="post">
+<form name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true">
   <label>
     <span>name</span>
     <input type="text" name="name" id="name" required />
@@ -33,6 +33,8 @@
     <span>message</span>
     <textarea rows="5" required></textarea>
   </label>
+
+  <input type="hidden" name="bot-field" tabindex="-1" autocomplete="off" style="display:none" />
 
   <button type="submit">Send mail</button>
 </form>
