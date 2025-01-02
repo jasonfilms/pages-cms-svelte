@@ -2,7 +2,7 @@
   "source": [
     {
       "name": "fairy boy",
-      "desc": "hello _world_",
+      "desc": "<p>hello <em>world</em></p>",
       "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "name": "Carol Side By Side",
-      "desc": "description with **bold** and none",
+      "desc": "<p>description with <strong>bold</strong> and none</p>",
       "src": "https://www.youtube.com/watch?v=7wpKLujsby8"
     },
     {
