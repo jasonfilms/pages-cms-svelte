@@ -32,8 +32,8 @@ content:
           - name: desc
             label: Description
             type: rich-text
-            format: html
             options:
+              format: html
               image:
                 path: static/images
           - name: src
