@@ -1,7 +1,19 @@
-[
-  { "name": "next", "desc": "test", "src": "https://www.youtube.com/watch?v=_cMxraX_5RE" },
-  { "name": "one", "desc": "three four", "src": "https://vimeo.com/984159615" },
-  { "name": "two", "desc": "hello", "src": "https://vimeo.com/323783503" },
-  { "name": "what's up", "desc": "lol", "src": "https://vimeo.com/707012696" },
-  { "name": "hey", "desc": "here", "src": "https://vimeo.com/999941003" }
-]
+{
+  "source": [
+    {
+      "name": "fairy boy",
+      "desc": "hello _world_",
+      "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
+    },
+    {
+      "name": "My Bardo(s): As A Queer Jewish Trans Fag",
+      "desc": "test this",
+      "src": "https://www.youtube.com/watch?v=smJxo824DqI"
+    },
+    {
+      "name": "Carol Side By Side",
+      "desc": "description with **bold** and none",
+      "src": "https://www.youtube.com/watch?v=7wpKLujsby8"
+    }
+  ]
+}
