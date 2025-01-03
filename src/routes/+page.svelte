@@ -1,23 +1,12 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import videos from "$lib/data/videos.json";
+  import { source } from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
-  import BiggerPicture from "bigger-picture";
-  import type { BiggerPictureInstance } from 'bigger-picture';
-  import "bigger-picture/css";
-
-  let bp: BiggerPictureInstance;
-  let links: NodeListOf<HTMLAnchorElement>;
-  onMount(() => {
-    bp = BiggerPicture({ target: document.body });
-    links = document.querySelectorAll("a.card-link");
-  });
 </script>
 
 <section class="grid">
-  {#each videos as source}
+  {#each source as video}
     <article class="card">
-      <Video src={source.src} />
+      <Video src={video.src} />
     </article>
   {/each}
 </section>
@@ -35,18 +24,6 @@
     display: flex;
     padding: 0.25em;
     border-image: url("/images/frame3.png") 10% / 20px / 1rem round stretch;
-    
-    &:nth-child(1n + 3) {
-      border-image: url("/images/frame3.png") 10% / 20px / 1rem round stretch;
-    }
-
-    &:nth-child(2n + 3) {
-      border-image: url("/images/frame1.png") 10% / 40px 20px / 1rem round stretch;
-    }
-
-    &:nth-child(3n + 2) {
-      border-image: url("/images/frame2.png") 10% / 20px / 1rem round stretch;
-    }
 
     @media only screen and (max-width: 700px) {
       align-items: center;

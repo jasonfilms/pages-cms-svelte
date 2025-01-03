@@ -5,7 +5,7 @@
 <h1>contact me</h1>
 
 <p>you can find me at my socials here:</p>
-<ul>
+<ul id="socials">
   {#each socials as {name, url}}
     <li><a href="{url}">{name}</a></li>
   {/each}
@@ -56,5 +56,11 @@
       margin-top: 1rem;
       font-size: 1.25rem;
     }
+  }
+
+  #socials {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
   }
 </style>

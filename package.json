@@ -20,7 +20,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"bigger-picture": "^1.1.19",
 		"vidstack": "^1.12.12"
 	}
 }
