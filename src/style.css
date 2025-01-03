@@ -98,8 +98,8 @@ a {
 }
 
 button {
+  cursor: pointer;
   font-family: var(--title-font);
-  font-weight: bold;
   padding: 0.5rem;
   background: var(--accent);
   border: none;

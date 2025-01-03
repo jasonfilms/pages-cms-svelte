@@ -40,7 +40,7 @@
   function openMenu() {
     mobile = !mobile;
     if (mobile) {
-      document.getElementById("main-menu")!.focus();
+      document.getElementById("main-menu")!.focus({ preventScroll: true });
     }
   }
 </script>
@@ -63,6 +63,7 @@
     class={mobile ? "menu" : ""} 
     tabindex="0" 
     onkeydown={(e) => { if (e.key === "Escape") mobile = false }}
+    onclick={() => { if (mobile) mobile = false }} 
     use:trapFocus
   >
     <button 
@@ -84,17 +85,20 @@
     display: flex;
     flex-wrap: wrap;
     font-family: var(--title-font);
-    margin: 0 1rem 5rem;
+    font-size: 1.5rem;
+    margin: 0 0.5rem 5rem;
     max-width: 100%;
 
     .toggle {
-      margin-left: auto;
+      font-size: 1.5rem;
     }
 
     .close {
       position: fixed;
       top: 1rem;
       right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
 
     .toggle, .close {
@@ -110,8 +114,16 @@
     }
 
     @media screen and (max-width: 1180px) {
-      .toggle, .show {
+      margin-bottom: 1rem;
+
+      .toggle {
         display: block;
+        margin: 0.5rem 0.25rem 0.5rem auto;
+      }
+
+      .show {
+        display: grid;
+        place-content: center;
       }
 
       ul {
@@ -131,12 +143,20 @@
         height: 100vh;
         background: var(--background);
 
-        &:focus-visible {
-          border: 1px solid black;
+        li {
+          display: block;
+          width: calc(100vw - 4rem);
+          text-align: center;
         }
 
         a {
+          display: block;
           font-size: 2rem;
+          transition: 0.5s ease-in-out all;
+
+          &:hover {
+            letter-spacing: 2px;
+          }
         }
       }
     }
