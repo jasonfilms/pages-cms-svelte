@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { X, Menu } from "lucide-svelte";
+
   let mobile = $state(false);
+  let button: HTMLButtonElement;
 
   function trapFocus(node: HTMLElement) {
     const previous = document.activeElement as HTMLElement;
@@ -37,12 +40,11 @@
     });
   }
 
-  function openMenu() {
-    mobile = !mobile;
-    if (mobile) {
-      document.getElementById("main-menu")!.focus({ preventScroll: true });
+  $effect(() => {
+    if (mobile && button) {
+      button.focus();
     }
-  }
+  });
 </script>
 
 <nav>
@@ -50,11 +52,11 @@
     class="toggle" 
     aria-expanded="{mobile}" 
     aria-controls="main-menu" 
-    aria-label="Toggle menu" 
-    onclick={openMenu}
+    onclick={() => mobile = !mobile}
     onkeydown={(e) => { if (mobile && e.key === "Escape") mobile = false }} 
   >
-    Menu
+    <Menu />
+    <span class="visually-hidden">Toggle menu</span>
   </button>
   <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
@@ -68,11 +70,12 @@
   >
     <button 
       class={["close", mobile ? "show" : ""]} 
-      aria-label="Close menu" 
       onclick={() => mobile = false}
       onkeydown={(e) => { if (e.key === "Space" || e.key === "Escape") mobile = false }}
+      bind:this={button}
     >
-      x
+      <X />
+      <span class="visually-hidden">Close menu</span>
     </button>
     <li><a href="/">index</a></li>
     <li><a href="/about">about</a></li>
@@ -96,13 +99,13 @@
     .close {
       position: fixed;
       top: 1rem;
-      right: 1rem;
-      width: 2.5rem;
-      height: 2.5rem;
+      right: 1.25rem;
     }
 
     .toggle, .close {
       display: none;
+      min-width: 44px;
+      min-height: 44px;
     }
 
     & > ul {
@@ -116,14 +119,13 @@
     @media screen and (max-width: 1180px) {
       margin-bottom: 1rem;
 
-      .toggle {
-        display: block;
-        margin: 0.5rem 0.25rem 0.5rem auto;
-      }
-
-      .show {
+      .toggle, .show {
         display: grid;
         place-content: center;
+      }
+
+      .toggle {
+        margin: 0.5rem 0.25rem 0.5rem auto;
       }
 
       ul {

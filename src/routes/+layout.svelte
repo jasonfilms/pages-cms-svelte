@@ -22,5 +22,9 @@
     max-width: 80ch;
     font-family: var(--body-font);
     font-size: 1.15rem;
+
+    @media screen and (max-width: 1180px) {
+      margin: 0 2rem;
+    }
   }
 </style>

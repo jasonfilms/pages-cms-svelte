@@ -60,6 +60,7 @@
 
   #socials {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     gap: 1rem;
   }

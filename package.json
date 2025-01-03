@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"lucide-svelte": "^0.469.0",
 		"vidstack": "^1.12.12"
 	}
 }

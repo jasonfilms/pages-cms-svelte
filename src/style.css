@@ -34,9 +34,17 @@
   font-variation-settings: 'SOFT' 0 100, 'WONK' 0 1, 'opsz' 9 144;
 }
 
+@font-face {
+  font-family: "Azeret Mono";
+  src: url('/fonts/AzeretMono-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 :root {
   --body-font: 'Charis SIL', Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
   --title-font: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  --mono-font: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   --border: #edeae8;
   --text: #06060e;
   --background: #faf6f4;
@@ -62,7 +70,8 @@ h1, h2, h3 {
 }
 
 input, textarea {
-  font-family: var(--title-font);
+  font-family: var(--mono-font);
+  font-size: 1.15rem;
   font-weight: 300;
   padding: 0.5em;
   border: var(--border) 1px solid;
@@ -114,4 +123,16 @@ button {
     background: var(--text);
     transition: none;
   }
+}
+
+/* source: https://gomakethings.com/revisting-aria-label-versus-a-visually-hidden-class/ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
