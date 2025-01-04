@@ -37,6 +37,12 @@ content:
               format: html
               image:
                 path: static/images
+          - name: thumbnail
+            label: Thumbnail
+            type: image
+            options:
+              path: static/images
+              output: /
           - name: src
             label: Source URL
             type: string
