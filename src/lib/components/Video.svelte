@@ -25,7 +25,6 @@
     crossorigin
     playsinline
     muted
-    keep-alive
     class="player"
     {src}
     bind:this={player}
@@ -38,6 +37,6 @@
 <style>
   .player {
     aspect-ratio: 16 / 9;
-    --video-font-family: var(--title-font);
+    --video-font-family: var(--mono-font);
   }
 </style>
