@@ -2,6 +2,7 @@
   "video": [
     {
       "name": "fairy boy",
+      "image": "/static/images/fairyboy.png",
       "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
     },
     {
