@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { source } from "$lib/data/videos.json";
+  import { video } from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
 </script>
 
 <section class="grid">
-  {#each source as video}
+  {#each video as source}
     <article class="card">
-      <Video src={video.src} />
+      <Video src={source.src} />
     </article>
   {/each}
 </section>

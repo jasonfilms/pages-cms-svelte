@@ -1,13 +1,17 @@
 <script lang="ts">
-  import socials from "$lib/data/socials.json";
+  import { social } from "$lib/data/socials.json";
 </script>
 
 <h1>contact me</h1>
 
 <p>you can find me at my socials here:</p>
 <ul id="socials">
-  {#each socials as {name, url}}
-    <li><a href="{url}">{name}</a></li>
+  {#each social as { name, url }}
+    <li>
+      <a href="{url}">
+        {name}
+      </a>
+    </li>
   {/each}
 </ul>
 

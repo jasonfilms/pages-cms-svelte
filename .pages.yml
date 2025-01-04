@@ -20,8 +20,9 @@ content:
     label: Videos
     path: src/lib/data/videos.json
     type: file
+    icon: film
     fields:
-      - name: source
+      - name: video
         label: Video Source
         type: object
         list: true
@@ -44,6 +45,7 @@ content:
     label: Socials
     path: src/lib/data/socials.json
     type: file
+    icon: circle-user-round
     fields:
       - name: social
         label: Social
