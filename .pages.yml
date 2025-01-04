@@ -35,14 +35,12 @@ content:
             type: rich-text
             options:
               format: html
-              image:
-                path: /images
-                output: ""
           - name: image
             label: Thumbnail
             type: image
             options:
-              path: static/images
+              path: /images
+              output: ""
           - name: src
             label: Source URL
             type: string
