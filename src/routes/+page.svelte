@@ -6,7 +6,7 @@
 <section class="grid">
   {#each video as source}
     <article class="card">
-      <Video src={source.src} />
+      <Video src={source.src} image={source.image} />
     </article>
   {/each}
 </section>

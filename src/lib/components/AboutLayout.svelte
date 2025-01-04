@@ -10,7 +10,7 @@
   placeholder for svg
 </div>
 
-<img src="/images/jason-1.png" class="portrait" alt="Portrait of a smiling, young person with curly hair and a dark green jacket" />
+<img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
 
 {@render children()}
 
@@ -18,5 +18,6 @@
   .portrait {
     display: block;
     margin: 1rem auto;
+    max-width: 100%;
   }
 </style>
