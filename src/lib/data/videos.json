@@ -1,23 +1,19 @@
 {
-  "source": [
+  "video": [
     {
       "name": "fairy boy",
-      "desc": "<p>hello <em>world</em></p>",
       "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
     },
     {
       "name": "My Bardo(s): As A Queer Jewish Trans Fag",
-      "desc": "test this",
       "src": "https://www.youtube.com/watch?v=smJxo824DqI"
     },
     {
       "name": "Carol Side By Side",
-      "desc": "<p>description with <strong>bold</strong> and none</p>",
       "src": "https://www.youtube.com/watch?v=7wpKLujsby8"
     },
     {
       "name": "Transgender Liberation Doc",
-      "desc": "hello world!",
       "src": "https://www.youtube.com/watch?v=riCOxLs7QKQ"
     },
     {
