@@ -7,22 +7,27 @@
     },
     {
       "name": "My Bardo(s): As A Queer Jewish Trans Fag",
+      "image": "/images/bardo.png",
       "src": "https://www.youtube.com/watch?v=smJxo824DqI"
     },
     {
       "name": "Carol Side By Side",
+      "image": "/images/carol.png",
       "src": "https://www.youtube.com/watch?v=7wpKLujsby8"
     },
     {
       "name": "Transgender Liberation Doc",
+      "image": "/images/transliberation.png",
       "src": "https://www.youtube.com/watch?v=riCOxLs7QKQ"
     },
     {
       "name": "At The Museum",
+      "image": "/images/museum.png",
       "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
     },
     {
       "name": "Disobedience Side by Side",
+      "image": "/images/disobedience.png",
       "src": "https://www.youtube.com/watch?v=SbOLUu0hTHk"
     }
   ]
