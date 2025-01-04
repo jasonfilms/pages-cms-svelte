@@ -37,7 +37,7 @@ content:
               format: html
               image:
                 path: static/images
-          - name: thumbnail
+          - name: image
             label: Thumbnail
             type: image
             options:

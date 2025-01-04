@@ -5,7 +5,7 @@
 
   let player = $state() as MediaPlayerElement;
   let mounted = $state(false);
-  let { src }: { src: string } = $props();
+  let { src, image, desc }: { src: string, image: string , desc?: string } = $props();
 
   onMount(() => {
     mounted = true;
@@ -29,7 +29,9 @@
     {src}
     bind:this={player}
   > 
-    <media-provider></media-provider>
+    <media-provider>
+      <media-poster src={image} alt={desc}></media-poster>
+    </media-provider>
     <media-video-layout></media-video-layout>
   </media-player>
 {/key}
