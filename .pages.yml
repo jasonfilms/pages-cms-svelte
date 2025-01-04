@@ -36,7 +36,7 @@ content:
             options:
               format: html
               image:
-                path: static/images
+                path: /images
                 output: ""
           - name: image
             label: Thumbnail
