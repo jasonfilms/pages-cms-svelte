@@ -2,6 +2,7 @@
   import 'vidstack/bundle';
   import type { MediaPlayerElement } from 'vidstack/elements';
   import { onDestroy, onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
 
   let player = $state() as MediaPlayerElement;
   let mounted = $state(false);
@@ -28,6 +29,7 @@
     class="player"
     {src}
     bind:this={player}
+    in:fade
   > 
     <media-provider>
       <media-poster class="vds-poster" src={image} alt={desc}></media-poster>

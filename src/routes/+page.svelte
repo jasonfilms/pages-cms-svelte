@@ -1,11 +1,12 @@
 <script lang="ts">
+  import { fly } from "svelte/transition";
   import { video } from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
 </script>
 
 <section class="grid">
-  {#each video as source}
-    <article class="card">
+  {#each video as source, i}
+    <article class="card" in:fly={{ delay: (0.2 * i), y: 200, duration: 200 }}>
       <Video src={source.src} image={source.image} />
     </article>
   {/each}
