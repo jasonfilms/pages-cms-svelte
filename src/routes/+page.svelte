@@ -1,14 +1,28 @@
 <script lang="ts">
-  import { fly } from "svelte/transition";
+  import { onMount } from "svelte";
+  import { quintIn, quintOut } from "svelte/easing";
+  import { prefersReducedMotion } from "svelte/motion";
+  import { fade, fly } from "svelte/transition";
   import { video } from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
+  
+  let mounted = $state(false);
+
+  onMount(() => {
+    mounted = true;
+  });
+
+  const duration = 300;
+  const flyIn = { duration, y: prefersReducedMotion.current ? 0 : 10, easing: quintOut };
 </script>
 
 <section class="grid">
   {#each video as source, i}
-    <article class="card" in:fly={{ delay: (0.2 * i), y: 200, duration: 200 }}>
-      <Video src={source.src} image={source.image} />
-    </article>
+    {#key mounted}
+      <article class="card" in:fly={{ delay: (200 * i), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
+        <Video src={source.src} image={source.image} />
+      </article>
+    {/key}
   {/each}
 </section>
 

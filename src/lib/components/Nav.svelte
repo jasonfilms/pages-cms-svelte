@@ -117,7 +117,7 @@
     }
 
     @media screen and (max-width: 1180px) {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
       .toggle, .show {
         display: grid;

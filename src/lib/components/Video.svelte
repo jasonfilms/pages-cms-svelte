@@ -1,16 +1,11 @@
 <script lang="ts">
   import 'vidstack/bundle';
   import type { MediaPlayerElement } from 'vidstack/elements';
-  import { onDestroy, onMount } from 'svelte';
+  import { onDestroy } from 'svelte';
   import { fade } from 'svelte/transition';
 
   let player = $state() as MediaPlayerElement;
-  let mounted = $state(false);
   let { src, image, desc = "" }: { src: string, image: string , desc?: string } = $props();
-
-  onMount(() => {
-    mounted = true;
-  });
 
   onDestroy(() => {
     if (player !== undefined) {
@@ -19,24 +14,22 @@
   });
 </script>
 
-{#key mounted}
-  <media-player
-    viewType="video"
-    streamType="on-demand"
-    crossorigin
-    playsinline
-    muted
-    class="player"
-    {src}
-    bind:this={player}
-    in:fade
-  > 
-    <media-provider>
-      <media-poster class="vds-poster" src={image} alt={desc}></media-poster>
-    </media-provider>
-    <media-video-layout></media-video-layout>
-  </media-player>
-{/key}
+<media-player
+  viewType="video"
+  streamType="on-demand"
+  crossorigin
+  playsinline
+  muted
+  class="player"
+  {src}
+  bind:this={player}
+  transition:fade
+> 
+  <media-provider>
+    <media-poster class="vds-poster" src={image} alt={desc}></media-poster>
+  </media-provider>
+  <media-video-layout></media-video-layout>
+</media-player>
 
 <style>
   .player {
