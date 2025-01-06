@@ -85,11 +85,13 @@
     }
   }
 
-  :root::view-transition-old(root) {
-    animation: 90ms ease-in-out both fade-out, 300ms ease-in-out both slide-to-up;
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    :root::view-transition-old(root) {
+      animation: 90ms ease-in-out both fade-out, 300ms ease-in-out both slide-to-up;
+    }
 
-  :root::view-transition-new(root) {
-    animation: 210ms ease-out 90ms both fade-in, 300ms ease-in both slide-from-down;
+    :root::view-transition-new(root) {
+      animation: 210ms ease-out 90ms both fade-in, 300ms ease-in both slide-from-down;
+    }
   }
 </style>
