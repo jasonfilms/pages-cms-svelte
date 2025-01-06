@@ -19,7 +19,7 @@
 <section class="grid">
   {#each video as source, i}
     {#key mounted}
-      <article class="card" in:fly={{ delay: (200 * i), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
+      <article class="card" in:fly={{ delay: (200 * i + duration), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
         <Video src={source.src} image={source.image} />
       </article>
     {/key}

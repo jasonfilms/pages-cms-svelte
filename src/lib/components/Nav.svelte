@@ -91,6 +91,7 @@
     font-size: 1.5rem;
     margin: 0 0.5rem 5rem;
     max-width: 100%;
+    view-transition-name: mainmenu;
 
     .toggle {
       font-size: 1.5rem;
