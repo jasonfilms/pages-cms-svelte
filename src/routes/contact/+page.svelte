@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { social } from "$lib/data/socials.json";
+  import { enhance } from "$app/forms";
+  import { social } from "$lib/data/socials.json";  
+
+  let loading = $state(false);
 </script>
 
 <h1>contact me</h1>
@@ -18,31 +21,39 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form name="contact" method="post">
+<form name="contact" method="post" netlify-honeypot="honeypot" data-netlify="true" use:enhance={() => {
+  loading = true;
+
+  return async ({ update }) => {
+    await update();
+    loading = false;
+  }
+}}>
+  <input type="hidden" name="form-name" value="contact" tabindex="-1" autocomplete="off" style="display:none" />
   <label>
     <span>name</span>
-    <input type="text" name="name" id="name" required />
+    <input type="text" name="name" id="name" disabled={loading} required />
   </label>
 
   <label>
     <span>email</span>
-    <input type="email" name="email" id="email" required />
+    <input type="email" name="email" id="email" disabled={loading} required />
   </label>
 
   <label>
     <span>website</span>
-    <input type="url" name="website" id="website" />
+    <input type="url" name="$website" id="website" disabled={loading} />
   </label>
 
   <label>
     <span>message</span>
-    <textarea name="message" rows="5" required></textarea>
+    <textarea name="message" rows="5" disabled={loading} required></textarea>
   </label>
 
-  <input type="hidden" name="_next" value="/success" tabindex="-1" autocomplete="off" style="display:none" />
-  <input type="hidden" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+  <div class="cf-turnstile" data-sitekey="1x00000000000000000000BB"></div>
+  <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
 
-  <button type="submit">Send mail</button>
+  <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send mail"}</button>
 </form>
 
 <style>
