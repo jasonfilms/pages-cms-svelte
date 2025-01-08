@@ -1,9 +1,5 @@
 <script lang="ts">
-  import type { ActionData } from "./$types";
-  import { enhance } from "$app/forms";
   import { social } from "$lib/data/socials.json";
-
-  let { form }: { form: ActionData } = $props();
 </script>
 
 <h1>contact me</h1>
@@ -13,6 +9,7 @@
   {#each social as { name, url }}
     <li>
       <a href="{url}">
+        <img src="https://cdn.simpleicons.org/{(name === 'Twitter') ? 'X' : name}" height="32" width="32" alt="" />
         {name}
       </a>
     </li>
@@ -21,14 +18,11 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form name="contact" method="post" use:enhance>
+<form name="contact" method="post">
   <label>
     <span>name</span>
     <input type="text" name="name" id="name" required />
   </label>
-  {#if form?.error}
-    <p>This is required!</p>
-  {/if}
 
   <label>
     <span>email</span>
@@ -45,6 +39,7 @@
     <textarea name="message" rows="5" required></textarea>
   </label>
 
+  <input type="hidden" name="_next" value="/success" tabindex="-1" autocomplete="off" style="display:none" />
   <input type="hidden" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
 
   <button type="submit">Send mail</button>
@@ -74,5 +69,11 @@
     flex-wrap: wrap;
     list-style: none;
     gap: 1rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 </style>
