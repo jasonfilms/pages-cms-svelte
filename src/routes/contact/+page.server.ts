@@ -1,5 +1,4 @@
 import type { Actions } from "./$types";
-import { SECRET_KEY } from "$env/static/private";
 import { error, fail, redirect } from "@sveltejs/kit";
 
 export const prerender = false;
@@ -26,7 +25,7 @@ export const actions = {
     }
 
     const formData = new FormData();
-    formData.append("secret", SECRET_KEY);
+    formData.append("secret", process.env.SECRET_KEY as string);
     formData.append("response", token);
     formData.append("remoteip", ip);
 
