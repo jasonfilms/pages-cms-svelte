@@ -1,5 +1,9 @@
 <script lang="ts">
+  import type { ActionData } from "./$types";
+  import { enhance } from "$app/forms";
   import { social } from "$lib/data/socials.json";
+
+  let { form }: { form: ActionData } = $props();
 </script>
 
 <h1>contact me</h1>
@@ -17,11 +21,14 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true">
+<form name="contact" method="post" use:enhance>
   <label>
     <span>name</span>
     <input type="text" name="name" id="name" required />
   </label>
+  {#if form?.error}
+    <p>This is required!</p>
+  {/if}
 
   <label>
     <span>email</span>
@@ -35,10 +42,10 @@
 
   <label>
     <span>message</span>
-    <textarea rows="5" required></textarea>
+    <textarea name="message" rows="5" required></textarea>
   </label>
 
-  <input type="hidden" name="bot-field" tabindex="-1" autocomplete="off" style="display:none" />
+  <input type="hidden" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
 
   <button type="submit">Send mail</button>
 </form>

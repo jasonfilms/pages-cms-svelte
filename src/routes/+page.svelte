@@ -32,13 +32,14 @@
     place-content: center;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-flow: dense;
-    gap: 3rem;
+    gap: 6rem;
+    margin: 3rem auto 6rem;
   }
 
   .card {
     display: flex;
     padding: 0.25em;
-    border-image: url("/images/frame3.png") 10% / 20px / 1rem round stretch;
+    border-image: url("/images/frame1.png") 12.5% / 38px 60px / 2.5rem stretch;
 
     @media only screen and (max-width: 700px) {
       align-items: center;
