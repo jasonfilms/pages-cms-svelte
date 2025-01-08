@@ -1,16 +1,13 @@
 import type { Actions } from "./$types";
 import { error, fail, redirect } from "@sveltejs/kit";
 
-export const prerender = false;
+export const prerender = true;
 
 export const actions = {
   default: async ({ request }) => {
     const form = await request.formData();
     const token = form.get("cf-turnstile-response") as string;
     const ip = request.headers.get("CF-Connecting-IP") as string;
-    const name = form.get("name") as string;
-    const email = form.get("email") as string;
-    const website = form.get("website") as string;
     const message = form.get("message") as string;
 
     const checkProfanity = await fetch("https://vector.profanity.dev", {
@@ -42,12 +39,7 @@ export const actions = {
     const response = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: JSON.stringify({
-        name,
-        email,
-        website,
-        message,
-      }),
+      body: JSON.stringify(form),
     });
     if (!response.ok) {
       return error(400, { message: "There was a problem sending the email." });

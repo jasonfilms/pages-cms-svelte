@@ -1,44 +1,9 @@
 <script lang="ts">
+  import { trapFocus } from "trap-focus-svelte";
   import { X, Menu } from "lucide-svelte";
 
   let mobile = $state(false);
   let button: HTMLButtonElement;
-
-  function trapFocus(node: HTMLElement) {
-    const previous = document.activeElement as HTMLElement;
-
-    function focusable() {
-      return Array.from(node.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
-    }
-
-    function handleKeyDown(e: KeyboardEvent) {
-      const current = document.activeElement;
-      const elements = focusable();
-      const first = elements.at(0) as HTMLElement;
-      const last = elements.at(-1) as HTMLElement;
-
-      if (e.shiftKey && current === first) {
-        last.focus();
-        e.preventDefault();
-      }
-
-      if (!e.shiftKey && current === last) {
-        first.focus();
-        e.preventDefault();
-      }
-    }
-
-    $effect(() => {
-      let firstNode = focusable()[0] as HTMLElement;
-      firstNode.focus();
-      node.addEventListener('keydown', handleKeyDown);
-
-      return () => {
-        node.removeEventListener('keydown', handleKeyDown);
-        previous.focus();
-      };
-    });
-  }
 
   $effect(() => {
     if (mobile && button) {
@@ -66,7 +31,7 @@
     tabindex="0" 
     onkeydown={(e) => { if (e.key === "Escape") mobile = false }}
     onclick={() => { if (mobile) mobile = false }} 
-    use:trapFocus
+    use:trapFocus={mobile}
   >
     <button 
       class={["close", mobile ? "show" : ""]} 
