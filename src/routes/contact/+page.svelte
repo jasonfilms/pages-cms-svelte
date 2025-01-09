@@ -1,8 +1,19 @@
 <script lang="ts">
+  import type { ActionData } from "./$types.js";
+  import type { SubmitFunction } from "@sveltejs/kit";
   import { enhance } from "$app/forms";
   import { social } from "$lib/data/socials.json";
-  
+
   let loading = $state(false);
+  let { form }: { form: ActionData } = $props();
+  const submit: SubmitFunction = () => {
+    console.log(form);
+    loading = true;
+    return async ({ update }) => {
+      await update();
+      loading = false;
+    }
+  }
 </script>
 
 <h1>contact me</h1>
@@ -21,21 +32,7 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form 
-  name="contact" 
-  action="/success" 
-  method="post" 
-  netlify-honeypot="honeypot" 
-  data-netlify="true" 
-  use:enhance={() => {
-    loading = true;
-    return async ({ update }) => {
-      await update();
-      loading = false;
-    }
-  }}
->
-  <input type="hidden" name="form-name" value="contact" tabindex="-1" autocomplete="off" style="display:none" />
+<form method="post" use:enhance={submit}>
   <label>
     <span>name</span>
     <input type="text" name="name" id="name" disabled={loading} required />
@@ -48,15 +45,20 @@
 
   <label>
     <span>website</span>
-    <input type="url" name="website" id="website" disabled={loading} />
+    <input type="url" name="$website" id="website" disabled={loading} />
   </label>
 
   <label>
     <span>message</span>
     <textarea name="message" rows="5" disabled={loading} required></textarea>
   </label>
-
+  {#if form?.error}
+    <p>{form.message}</p>
+  {/if}
+  
   <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div>
+  <input type="hidden" name="accessKey" value="3a6e398e-5d65-439e-8a48-26c68a5c1d9d" tabindex="-1" autocomplete="off" style="display:none" />
+  <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
   <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
 
   <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send mail"}</button>
