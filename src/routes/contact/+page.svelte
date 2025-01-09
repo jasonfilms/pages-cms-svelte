@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { ActionData } from "./$types.js";
   import type { SubmitFunction } from "@sveltejs/kit";
   import { enhance } from "$app/forms";
+  import { page } from "$app/state";
   import { social } from "$lib/data/socials.json";
 
   let loading = $state(false);
-  let { form }: { form: ActionData } = $props();
+  let { form } = $props();
   const submit: SubmitFunction = () => {
     console.log(form);
     loading = true;
@@ -32,7 +32,7 @@
 
 <p>... or you can directly send me a message here!</p>
 
-<form method="post" use:enhance={submit}>
+<form name="contact" method="post" use:enhance={submit}>
   <label>
     <span>name</span>
     <input type="text" name="name" id="name" disabled={loading} required />
@@ -52,13 +52,16 @@
     <span>message</span>
     <textarea name="message" rows="5" disabled={loading} required></textarea>
   </label>
-  {#if form?.error}
+  <p>the following should show validation errors: </p>
+  {#if form?.invalid}
     <p>{form.message}</p>
   {/if}
-  
+  <p>{JSON.stringify(page)}</p>
+
   <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div>
-  <input type="hidden" name="accessKey" value="3a6e398e-5d65-439e-8a48-26c68a5c1d9d" tabindex="-1" autocomplete="off" style="display:none" />
+  <input type="hidden" name="accessKey" value="4afcb69d-0fd1-4a9e-9015-5d9b8928e99f" tabindex="-1" autocomplete="off" style="display:none" />
   <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
+  <input type="hidden" name="redirectTo" value="{page.form}/success" />
   <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
 
   <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send mail"}</button>

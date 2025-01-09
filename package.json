@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@hapi/address": "^5.1.1",
 		"lucide-svelte": "^0.469.0",
 		"trap-focus-svelte": "^1.1.0",
 		"vidstack": "^1.12.12"
