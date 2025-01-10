@@ -1,14 +1,16 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import { fade } from "svelte/transition";
+  import Initials from "./Initials.svelte";
 
   let { children }: { children: Snippet } = $props();
 </script>
 
-<h1>about me</h1>
-
-<div id="name">
-  svg
+<div id="name" in:fade={{ duration: 200 }}>
+  <Initials />
 </div>
+
+<h1>about me</h1>
 
 <img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
 
@@ -18,6 +20,7 @@
   #name {
     display: grid;
     place-content: center;
+    margin-bottom: 4rem;
   }
 
   .portrait {
