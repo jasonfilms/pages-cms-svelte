@@ -5,7 +5,7 @@
   import { fade } from 'svelte/transition';
 
   let player = $state() as MediaPlayerElement;
-  let { src, image, desc = "" }: { src: string, image: string , desc?: string } = $props();
+  let { name, src, image, desc = "" }: { name: string, src: string, image?: string , desc?: string } = $props();
 
   onDestroy(() => {
     if (player !== undefined) {
@@ -26,7 +26,9 @@
   transition:fade
 > 
   <media-provider>
-    <media-poster class="vds-poster" src={image} alt={desc}></media-poster>
+    {#if image}
+      <media-poster class="vds-poster" src={image} alt={!desc ? name : desc}></media-poster>
+    {/if}
   </media-provider>
   <media-video-layout></media-video-layout>
 </media-player>

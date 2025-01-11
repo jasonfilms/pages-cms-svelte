@@ -21,7 +21,7 @@
     {#key mounted}
       <article class="card" in:fly={{ delay: (200 * i + duration), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
         <div class="card-frame">
-          <Video src={source.src} image={source.image} />
+          <Video name={source.name} src={source.src} image={source.image} />
         </div>
         <h1 in:fly={{ delay: (200 * i + duration + 200), ...flyIn }}>{source.name}</h1>
       </article>
