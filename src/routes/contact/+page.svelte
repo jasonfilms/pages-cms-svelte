@@ -16,14 +16,9 @@
   }
   const { form, enhance, errors } = superForm(data.form, {
     validators: zodClient(schema),
-    onResult: ({ result, formElement }) => {
+    onResult: ({ result }) => {
       if (result.type === "success") {
         submit;
-      }
-
-      if (result.type !== "success") {
-        console.log(result);
-        console.log(formElement);
       }
     },
   });

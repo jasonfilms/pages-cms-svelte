@@ -20,7 +20,10 @@
   {#each video as source, i}
     {#key mounted}
       <article class="card" in:fly={{ delay: (200 * i + duration), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
-        <Video src={source.src} image={source.image} />
+        <div class="card-frame">
+          <Video src={source.src} image={source.image} />
+        </div>
+        <h1 in:fly={{ delay: (200 * i + duration + 200), ...flyIn }}>{source.name}</h1>
       </article>
     {/key}
   {/each}
@@ -38,12 +41,30 @@
 
   .card {
     display: flex;
-    padding: 0.25em;
-    border-image: url("/images/frame1.png") 12.5% / 38px 60px / 2.5rem stretch;
+    flex-flow: column wrap;
+    gap: 3.5rem;
 
-    @media only screen and (max-width: 700px) {
-      align-items: center;
-      flex-flow: column wrap;
+    .card-frame {
+      display: flex;
+      padding: 0.25em;
+      width: 100%;
+      border-image: url("/images/frame1.png") 12.5% / 38px 60px / 2.5rem stretch;
+
+      @media only screen and (max-width: 700px) {
+        align-items: center;
+        flex-flow: column wrap;
+      }
+    }
+
+    h1 {
+      justify-self: center;
+      font-variant: small-caps;
+      letter-spacing: 2px;
+      word-spacing: 4px;
+      text-align: center;
+      background: var(--border);
+      padding: 0.5rem 0.25rem;
+      box-shadow: 0 2px 5px 0 var(--shadow);
     }
   }
 
@@ -54,6 +75,7 @@
 
     .card {
       justify-content: center;
+      margin: 0 1rem;
     }
   }
 </style>

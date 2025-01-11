@@ -10,8 +10,6 @@
   <Initials />
 </div>
 
-<h1>about me</h1>
-
 <img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
 
 {@render children()}
@@ -27,5 +25,6 @@
     display: block;
     margin: 1rem auto;
     max-width: 100%;
+    box-shadow: 0 2px 5px 0 var(--shadow);
   }
 </style>

@@ -33,7 +33,7 @@
 <Nav />
 
 {#key data.pathname}
-  <main in:fly={transitionIn} out:fly={transitionOut}>
+  <main in:fly={transitionIn} out:fly={transitionOut} class={data.pathname === "/" ? "full-width" : "default-width"}>
     {@render children()}
   </main>
 {/key}
@@ -41,10 +41,12 @@
 <style>
   main {
     margin: 2rem auto;
-    max-width: 80ch;
     font-family: var(--body-font);
     font-size: 1.15rem;
 
+    &.default-width { max-width: 80ch; }
+    &.full-width { max-width: 80vw; }
+    
     @media screen and (max-width: 900px) {
       margin: 0 2rem;
     }
