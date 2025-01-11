@@ -6,13 +6,15 @@
   let { children }: { children: Snippet } = $props();
 </script>
 
-<div id="name" in:fade={{ duration: 200 }}>
+<header id="name" in:fade={{ duration: 200 }}>
   <Initials />
-</div>
+</header>
 
-<img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
+<section id="about">
+  <img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
 
-{@render children()}
+  {@render children()}
+</section>
 
 <style>
   #name {
@@ -22,9 +24,9 @@
   }
 
   .portrait {
-    display: block;
-    margin: 1rem auto;
-    max-width: 100%;
+    float: left;
+    margin: 0 1.5rem 1rem;
+    max-width: 25%;
     box-shadow: 0 2px 5px 0 var(--shadow);
   }
 </style>

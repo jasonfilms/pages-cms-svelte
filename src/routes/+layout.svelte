@@ -33,7 +33,7 @@
 <Nav />
 
 {#key data.pathname}
-  <main in:fly={transitionIn} out:fly={transitionOut} class={data.pathname === "/" ? "full-width" : "default-width"}>
+  <main in:fly={transitionIn} out:fly={transitionOut} class={data.pathname === "/" || data.pathname === "/about" ? "full-width" : "default-width"}>
     {@render children()}
   </main>
 {/key}
