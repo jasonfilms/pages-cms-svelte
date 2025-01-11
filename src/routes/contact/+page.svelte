@@ -123,8 +123,7 @@
 <style>
   .contact {
     display: flex;
-    gap: 2rem;
-    justify-content: stretch;
+    justify-content: space-between;
   }
 
   form {

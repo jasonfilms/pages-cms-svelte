@@ -3,7 +3,7 @@ import { error, redirect, fail } from "@sveltejs/kit";
 import { superValidate, setError } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
 import { schema } from "$lib/data/schema";
-import { ACCESS_KEY, SECRET_KEY } from "$env/static/private";
+// import { ACCESS_KEY, SECRET_KEY } from "$env/static/private";
 
 export const prerender = false;
 
@@ -23,7 +23,7 @@ async function checkProfanity(message: string) {
 
 async function checkSpam(token: string, ip: string) {
   const form = new FormData();
-  form.append("secret", SECRET_KEY);
+  form.append("secret", import.meta.env["SECRET_KEY"]);
   form.append("response", token);
   form.append("remoteip", ip);
 
@@ -40,7 +40,7 @@ async function checkSpam(token: string, ip: string) {
 }
 
 async function send(form: FormData) {
-  form.append("accessKey", ACCESS_KEY);
+  form.append("accessKey", import.meta.env["ACCESS_KEY"]);
   const object = Object.fromEntries(form.entries());
   const response = await fetch("https://api.staticforms.xyz/submit", {
     method: "POST",
