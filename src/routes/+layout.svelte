@@ -14,7 +14,7 @@
     };
   }
 
-  let { title = "Jason Feinberg", children, data }: Props = $props();
+  let { title = "Jason Films", children, data }: Props = $props();
 
   // animations + view transitions
   const duration = 300;
