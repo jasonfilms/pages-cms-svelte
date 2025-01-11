@@ -124,6 +124,11 @@
   .contact {
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 900px) {
+      flex-flow: column wrap;
+      gap: 2rem;
+    }
   }
 
   form {

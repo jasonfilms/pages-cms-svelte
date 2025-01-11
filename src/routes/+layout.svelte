@@ -48,6 +48,7 @@
     &.full-width { max-width: 80vw; }
     
     @media screen and (max-width: 900px) {
+      max-width: 100% !important;
       margin: 0 2rem;
     }
   }
