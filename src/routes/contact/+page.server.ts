@@ -1,6 +1,6 @@
 import type { Actions } from "./$types";
-import { error, redirect } from "@sveltejs/kit";
-import { superValidate, message as serverMessage, setError } from "sveltekit-superforms";
+import { error, redirect, fail } from "@sveltejs/kit";
+import { superValidate, setError } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
 import { schema } from "$lib/data/schema";
 import { ACCESS_KEY, SECRET_KEY } from "$env/static/private";
@@ -56,8 +56,7 @@ async function send(form: FormData) {
 }
 
 export const load = async () => {
-  const form = await superValidate(zod(schema));
-  return { form };
+  return { form: await superValidate(zod(schema), { errors: false }) };
 }
 
 export const actions = {
@@ -67,10 +66,16 @@ export const actions = {
     const token = form.get("cf-turnstile-response") as string;
     const message = form.get("message");
 
-    const data = await superValidate(request, zod(schema));
+    const body = {
+      name: form.get("name") as string,
+      email: form.get("email") as string,
+      "$website": form.get("$website") as string,
+      message: message as string,
+    };
+    const data = await superValidate(body, zod(schema));
 
     if (!data.valid) {
-      return serverMessage(data, "invalid form");
+      return fail(400, { message: "Invalid form." });
     }
 
     const filter = await checkProfanity(message as string);
