@@ -1,6 +1,6 @@
 import type { Actions } from "./$types";
 import { error, redirect, fail } from "@sveltejs/kit";
-import { superValidate, setError } from "sveltekit-superforms";
+import { superValidate, setError, actionResult } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
 import { schema } from "$lib/data/schema";
 // import { ACCESS_KEY, SECRET_KEY } from "$env/static/private";
@@ -60,9 +60,9 @@ export const load = async () => {
 }
 
 export const actions = {
-  default: async ({ request }) => {
-    const form = await request.formData();
-    const ip = request.headers.get("CF-Connecting-IP") as string;
+  default: async (event) => {
+    const form = await event.request.formData();
+    const ip = event.request.headers.get("CF-Connecting-IP") as string;
     const token = form.get("cf-turnstile-response") as string;
     const message = form.get("message");
 
@@ -83,16 +83,25 @@ export const actions = {
       return setError(data, "message", "Please do not curse or swear.");
     }
 
-    const spam = await checkSpam(token, ip);
-    if (spam) {
-      return error(400, { message: "The provided Turnstile token was not valid!" });
-    }
+    // const spam = await checkSpam(token, ip);
+    // if (spam) {
+    //   return error(400, { message: "The provided Turnstile token was not valid!" });
+    // }
 
-    const sendError = await send(form);
-    if (sendError) {
-      return error(400, { message: "There was a problem sending the email." });
-    }
+    // const sendError = await send(form);
+    // if (sendError) {
+    //   return error(400, { message: "There was a problem sending the email." });
+    // }
 
-    return redirect(302, "/success");
+    // const response = await event.fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: new URLSearchParams(form).toString(),
+    // });
+
+    // const result = await response.text();
+    // console.log(result);
+    // return redirect(302, "/success");
+    return actionResult("success", { data }, 200);
   }
 } satisfies Actions;

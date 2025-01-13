@@ -1,3 +1,7 @@
+<script module>
+  export const prerender = true;
+</script>
+
 <script lang="ts">
   import type { SubmitFunction } from "@sveltejs/kit";
   import { superForm } from "sveltekit-superforms";
@@ -18,13 +22,14 @@
         }
       }
       submit(input);
+      loading = false;
     }
   });
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-</svelte:head>
+</svelte:head> -->
 
 <h1>contact me</h1>
 
@@ -46,7 +51,7 @@
   <div class="half">
     <p>... or you can directly send me a message here!</p>
 
-    <form name="contact" method="post" use:enhance>
+    <form name="contact" method="post" action="/success" netlify-honeypot="honeypot" data-netlify="true" use:enhance>
       <label>
         <span>name</span>
         <input 
@@ -111,8 +116,9 @@
         <p id="message-error" class="error">{$errors.message}</p>
       {/if}
 
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div>
-      <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
+      <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div> -->
+      <!-- <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" /> -->
+      <input type="hidden" name="form-name" value="contact" tabindex="-1" autocomplete="off" />
       <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
 
       <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send mail"}</button>
