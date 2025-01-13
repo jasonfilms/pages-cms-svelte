@@ -102,6 +102,6 @@ export const actions = {
     // const result = await response.text();
     // console.log(result);
     // return redirect(302, "/success");
-    return actionResult("success", { body }, 200);
+    return actionResult("success", body, 200);
   }
 } satisfies Actions;
