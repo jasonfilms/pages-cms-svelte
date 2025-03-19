@@ -1,6 +1,11 @@
 {
   "video": [
     {
+      "name": "At The Museum",
+      "image": "/images/museum.png",
+      "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
+    },
+    {
       "name": "fairy boy",
       "image": "/images/fairyboy.png",
       "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
@@ -19,11 +24,6 @@
       "name": "Transgender Liberation Doc",
       "image": "/images/transliberation.png",
       "src": "https://www.youtube.com/watch?v=riCOxLs7QKQ"
-    },
-    {
-      "name": "At The Museum",
-      "image": "/images/museum.png",
-      "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
     },
     {
       "name": "Disobedience Side by Side",
