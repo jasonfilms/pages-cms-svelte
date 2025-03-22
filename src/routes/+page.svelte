@@ -3,7 +3,7 @@
   import { quintIn, quintOut } from "svelte/easing";
   import { prefersReducedMotion } from "svelte/motion";
   import { fade, fly } from "svelte/transition";
-  import { video } from "$lib/data/videos.json";
+  import videos from "$lib/data/videos.json";
   import Video from "$lib/components/Video.svelte";
   
   let mounted = $state(false);
@@ -17,13 +17,13 @@
 </script>
 
 <section class="grid">
-  {#each video as source, i}
+  {#each videos as { name, src, image }, i}
     {#key mounted}
       <article class="card" in:fly={{ delay: (200 * i + duration), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
         <div class="card-frame">
-          <Video name={source.name} src={source.src} image={source.image} />
+          <Video name={name} src={src} image={image} />
         </div>
-        <h1 in:fly={{ delay: (200 * i + duration + 200), ...flyIn }}>{source.name}</h1>
+        <h1 in:fly={{ delay: (200 * i + duration + 200), ...flyIn }}>{name}</h1>
       </article>
     {/key}
   {/each}

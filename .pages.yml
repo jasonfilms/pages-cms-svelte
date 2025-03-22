@@ -10,6 +10,16 @@ content:
         type: string
         default: about
         hidden: true
+      - name: image
+        label: Photo
+        type: image
+        options:
+          path: /images
+          output: ""
+      - name: caption
+        label: Caption
+        type: string
+        description: You can use this field to describe your photo to people who have vision deficiencies. (This is an optional field.)
       - name: body
         label: Body
         type: rich-text
@@ -20,46 +30,39 @@ content:
     label: Videos
     path: src/lib/data/videos.json
     type: file
+    format: json
     icon: film
+    list: true
     fields:
-      - name: video
-        label: Video Source
-        type: object
-        list: true
-        fields:
-          - name: name
-            label: Title
-            type: string
-          - name: desc
-            label: Description
-            type: rich-text
-            options:
-              format: html
-          - name: image
-            label: Thumbnail
-            type: image
-            options:
-              path: /images
-              output: ""
-          - name: src
-            label: Source URL
-            type: string
-            pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+      - name: name
+        label: Title
+        type: string
+      - name: desc
+        label: Description
+        type: rich-text
+        options:
+          format: html
+      - name: image
+        label: Thumbnail
+        type: image
+        options:
+          path: /images
+          output: ""
+      - name: src
+        label: Source URL
+        type: string
+        pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
   - name: socials
     label: Socials
     path: src/lib/data/socials.json
     type: file
     icon: circle-user-round
+    list: true
     fields:
-      - name: social
-        label: Social
-        type: object
-        list: true
-        fields:
-          - name: url
-            label: URL
-            type: string
-            pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
-          - name: name
-            label: Name
-            type: string
+      - name: url
+        label: URL
+        type: string
+        pattern: ^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+      - name: name
+        label: Name
+        type: string

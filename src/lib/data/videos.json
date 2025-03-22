@@ -1,34 +1,32 @@
-{
-  "video": [
-    {
-      "name": "At The Museum",
-      "image": "/images/museum.png",
-      "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
-    },
-    {
-      "name": "fairy boy",
-      "image": "/images/fairyboy.png",
-      "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
-    },
-    {
-      "name": "My Bardo(s): As A Queer Jewish Trans Fag",
-      "image": "/images/bardo.png",
-      "src": "https://www.youtube.com/watch?v=smJxo824DqI"
-    },
-    {
-      "name": "Carol Side By Side",
-      "image": "/images/carol.png",
-      "src": "https://vimeo.com/1046257227"
-    },
-    {
-      "name": "Transgender Liberation Doc",
-      "image": "/images/transliberation.png",
-      "src": "https://www.youtube.com/watch?v=riCOxLs7QKQ"
-    },
-    {
-      "name": "Disobedience Side by Side",
-      "image": "/images/disobedience.png",
-      "src": "https://www.youtube.com/watch?v=SbOLUu0hTHk"
-    }
-  ]
-}
+[
+  {
+    "name": "At The Museum",
+    "image": "/images/museum.png",
+    "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
+  },
+  {
+    "name": "fairy boy",
+    "image": "/images/fairyboy.png",
+    "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
+  },
+  {
+    "name": "My Bardo(s): As A Queer Jewish Trans Fag",
+    "image": "/images/bardo.png",
+    "src": "https://www.youtube.com/watch?v=smJxo824DqI"
+  },
+  {
+    "name": "Carol Side By Side",
+    "image": "/images/carol.png",
+    "src": "https://vimeo.com/1046257227"
+  },
+  {
+    "name": "Transgender Liberation Doc",
+    "image": "/images/transliberation.png",
+    "src": "https://www.youtube.com/watch?v=riCOxLs7QKQ"
+  },
+  {
+    "name": "Disobedience Side by Side",
+    "image": "/images/disobedience.png",
+    "src": "https://www.youtube.com/watch?v=SbOLUu0hTHk"
+  }
+]

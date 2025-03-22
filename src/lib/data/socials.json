@@ -1,16 +1,14 @@
-{
-  "social": [
-    {
-      "url": "https://www.youtube.com/@faginnyc",
-      "name": "YouTube"
-    },
-    {
-      "url": "https://www.instagram.com/faginnyc_/?hl=en",
-      "name": "Instagram"
-    },
-    {
-      "url": "https://queerjewfagrambles.substack.com/",
-      "name": "Substack "
-    }
-  ]
-}
+[
+  {
+    "url": "https://www.youtube.com/@faginnyc",
+    "name": "YouTube"
+  },
+  {
+    "url": "https://www.instagram.com/faginnyc_/?hl=en",
+    "name": "Instagram"
+  },
+  {
+    "url": "https://queerjewfagrambles.substack.com/",
+    "name": "Substack "
+  }
+]
