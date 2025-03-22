@@ -19,10 +19,6 @@
   });
 </script>
 
-<!-- <svelte:head>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-</svelte:head> -->
-
 <h1>contact me</h1>
 
 <section class="contact">
@@ -104,8 +100,6 @@
         <p id="message-error" class="error">{$errors.message}</p>
       {/if}
 
-      <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div> -->
-      <input type="hidden" name="apiKey" value="" tabindex="-1" autocomplete="off">
       <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
       <input type="hidden" name="redirectTo" value="{base}/success" tabindex="-1" autocomplete="off" />
       <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
