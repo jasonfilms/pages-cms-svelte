@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
   import Initials from "./Initials.svelte";
 
-  let { children }: { children: Snippet } = $props();
+  let { children, image, caption }: { children: Snippet, image: string, caption: string } = $props();
 </script>
 
 <header id="name" in:fade={{ duration: 200 }}>
@@ -11,7 +11,7 @@
 </header>
 
 <section id="about">
-  <img src="/images/jason-1.jpg" class="portrait" alt="Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket" />
+  <img src="{image ?? '/images/jason-1.jpg'}" class="portrait" alt="{caption ?? 'Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket'}" />
 
   {@render children()}
 </section>
