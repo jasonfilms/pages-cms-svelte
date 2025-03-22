@@ -3,10 +3,19 @@
   import { createForm } from "felte";
   import { validator } from "@felte/validator-zod";
   import { schema } from "$lib/data/schema";
-  import socials from "$lib/data/socials.json";
+  import { social } from "$lib/data/socials.json";
 
   const { form, errors, isSubmitting } = createForm({
     extend: validator({ schema }),
+    onSubmit: async (values, context) => {
+      context.setData({...values, accessKey: "0e9ccc53-360c-4363-b803-34f7b1b4d25c" });
+      const response = await fetch("https://api.staticforms.xyz/submit", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json" }
+      });
+      return response.json();
+    },
   });
 </script>
 
@@ -20,7 +29,7 @@
   <div class="half">
     <p>you can find me at my socials here:</p>
     <ul id="socials">
-      {#each socials as { name, url }}
+      {#each social as { name, url }}
         <li>
           <a href="{url}" target="_blank" rel="noreferrer">
             <img src="https://cdn.simpleicons.org/{(name === 'Twitter') ? 'X' : name}" height="32" width="32" alt="" />
@@ -96,7 +105,7 @@
       {/if}
 
       <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div> -->
-      <input type="hidden" name="accessKey" value="4afcb69d-0fd1-4a9e-9015-5d9b8928e99f" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="apiKey" value="" tabindex="-1" autocomplete="off">
       <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
       <input type="hidden" name="redirectTo" value="{base}/success" tabindex="-1" autocomplete="off" />
       <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />
