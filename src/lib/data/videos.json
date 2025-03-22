@@ -1,14 +1,14 @@
 {
   "video": [
     {
-      "name": "At The Museum",
-      "image": "/images/museum.png",
-      "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
-    },
-    {
       "name": "fairy boy",
       "image": "/images/fairyboy.png",
       "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
+    },
+    {
+      "name": "At The Museum",
+      "image": "/images/museum.png",
+      "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
     },
     {
       "name": "My Bardo(s): As A Queer Jewish Trans Fag",
