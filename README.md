@@ -12,21 +12,19 @@ This is a way to manage adding new videos and editing existing ones.
 3. Inside, there will be this format:
 
 ```jsonc
-{
-  "video": [
-    {
-      "name": "fairy boy",
-      "image": "/images/fairyboy.png",
-      "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
-    },
-    // ... truncated for example purposes
-    {
-      "name": "Disobedience Side by Side",
-      "image": "/images/disobedience.png",
-      "src": "https://www.youtube.com/watch?v=SbOLUu0hTHk"
-    }
-  ]
-}
+[
+  {
+    "name": "fairy boy",
+    "image": "/images/fairyboy.png",
+    "src": "https://www.youtube.com/watch?v=lq27_AN47ws"
+  },
+   // ... truncated for example purposes
+  {
+     "name": "Disobedience Side by Side",
+    "image": "/images/disobedience.png",
+    "src": "https://www.youtube.com/watch?v=SbOLUu0hTHk"
+  }
+]
 ```
 4. Click on the pencil icon in the top right-hand corner.
 
@@ -52,3 +50,6 @@ This is a way to manage adding new videos and editing existing ones.
 ![green button to save](https://github.com/user-attachments/assets/aecf98c9-985f-4854-a99a-46421ac3c435)
 
 And that's it! Feel free to shoot me an email if you need any help.
+
+> [!IMPORTANT]
+> **Changes are _not_ immediate!** The website needs to rebuild itself every time you make _any_ changes. You can track the rebuild in Netlify, you might get an email notification if a build fails. In that case, feel free to email me so I can provide some debugging.
