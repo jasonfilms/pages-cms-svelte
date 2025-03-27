@@ -14,7 +14,7 @@ content:
         label: Photo
         type: image
         options:
-          path: /images
+          path: static/images
           output: ""
       - name: caption
         label: Caption
@@ -46,7 +46,7 @@ content:
         label: Thumbnail
         type: image
         options:
-          path: /images
+          path: static/images
           output: ""
       - name: src
         label: Source URL
