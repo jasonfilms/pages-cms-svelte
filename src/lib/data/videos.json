@@ -1,7 +1,7 @@
 [
   {
     "name": "At The Museum",
-    "image": "/images/museum.png",
+    "image": "/static/images/museum.png",
     "src": "https://www.youtube.com/watch?v=hkrzhGDf9_c"
   },
   {
