@@ -1,6 +1,6 @@
 ---
 layout: about
-image: /static/Screen Shot 2025-03-19 at 6.12.49 PM.png
+image: /images/Screen Shot 2025-03-19 at 6.12.49 PM.png
 ---
 Jason (he/they) is a content creator, academic, interdisciplinary filmmaker and writer striving for queer and trans liberation through a decolonial lens. This goal is based on LGBTQ studies, filmmaking, writing, queer literature, Jewish studies, and a bit of psychology. He is a storyteller and a "story-capturer," where he envisions a new world, and captures moments within this world that celebrate LGBTQ people. They are committed to queering the Digital Media Industry, the “Poetry/Literary World,” and, more ambitiously, the world at large. 
 
