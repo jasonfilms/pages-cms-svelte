@@ -1,4 +1,7 @@
-media: static
+media:
+  input: static
+  output: /
+  path: static/images
 content:
   - name: about
     label: About
@@ -13,9 +16,6 @@ content:
       - name: image
         label: Photo
         type: image
-        options:
-          path: images
-          output: images
       - name: caption
         label: Caption
         type: string
@@ -23,10 +23,6 @@ content:
       - name: body
         label: Body
         type: rich-text
-        options:
-          image:
-            path: images
-            output: images
   - name: videos
     label: Videos
     path: src/lib/data/videos.json
@@ -46,9 +42,6 @@ content:
       - name: image
         label: Thumbnail
         type: image
-        options:
-          path: images
-          output: images
       - name: src
         label: Source URL
         type: string
