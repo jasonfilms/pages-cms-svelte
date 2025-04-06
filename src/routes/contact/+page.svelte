@@ -3,18 +3,19 @@
   import { createForm } from "felte";
   import { validator } from "@felte/validator-zod";
   import { schema } from "$lib/data/schema";
-  import { social } from "$lib/data/socials.json";
+  import social from "$lib/data/socials.json";
 
   const { form, errors, isSubmitting } = createForm({
     extend: validator({ schema }),
     onSubmit: async (values, context) => {
       context.setData({...values, accessKey: "0e9ccc53-360c-4363-b803-34f7b1b4d25c" });
-      const response = await fetch("https://api.staticforms.xyz/submit", {
+      const response = await fetch(new URL(context.form!.action), {
         method: "POST",
         body: JSON.stringify(values),
         headers: { "Content-Type": "application/json" }
       });
-      return response.json();
+      const result = await response.json();
+      return result;
     },
   });
 </script>
