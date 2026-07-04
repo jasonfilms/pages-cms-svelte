@@ -23,3 +23,6 @@ vite.config.ts.timestamp-*
 .npmrc
 # Local Netlify folder
 .netlify
+
+# ignore content collections
+.content-collections

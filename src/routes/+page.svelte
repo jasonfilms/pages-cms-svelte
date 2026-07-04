@@ -17,7 +17,7 @@
 </script>
 
 <section class="grid">
-  {#each videos as { name, src, image }, i}
+  {#each videos as { name, image, src }, i}
     {#key mounted}
       <article class="card" in:fly={{ delay: (200 * i + duration), ...flyIn }} out:fade={{ easing: quintIn, duration }}>
         <div class="card-frame">

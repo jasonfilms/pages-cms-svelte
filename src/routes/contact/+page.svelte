@@ -7,16 +7,6 @@
 
   const { form, errors, isSubmitting } = createForm({
     extend: validator({ schema }),
-    onSubmit: async (values, context) => {
-      context.setData({...values, accessKey: "0e9ccc53-360c-4363-b803-34f7b1b4d25c" });
-      const response = await fetch(new URL(context.form!.action), {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: { "Content-Type": "application/json" }
-      });
-      const result = await response.json();
-      return result;
-    },
   });
 </script>
 
@@ -101,6 +91,8 @@
         <p id="message-error" class="error">{$errors.message}</p>
       {/if}
 
+      <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA4uvV2_RzfLGP6P"></div> -->
+      <input type="hidden" name="apiKey" value="" tabindex="-1" autocomplete="off">
       <input type="hidden" name="replyTo" value="@" tabindex="-1" autocomplete="off" style="display:none" />
       <input type="hidden" name="redirectTo" value="{base}/success" tabindex="-1" autocomplete="off" />
       <input type="text" name="honeypot" tabindex="-1" autocomplete="off" style="display:none" />

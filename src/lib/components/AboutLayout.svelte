@@ -1,4 +1,4 @@
-<script lang="ts">
+<scriipt lang="ts">
   import type { Snippet } from "svelte";
   import { fade } from "svelte/transition";
   import Initials from "./Initials.svelte";
@@ -11,7 +11,7 @@
 </header>
 
 <section id="about">
-  <img src="{image ?? '/images/jason-1.jpg'}" class="portrait" alt="{caption ?? 'Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket'}" />
+  <img src="{image ?? "/images/jason-1.jpg"}" class="portrait" alt="{caption ?? "Portrait of Jason Feinberg: a smiling, young person with curly hair and a dark green jacket"}" />
 
   {@render children()}
 </section>
